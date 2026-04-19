@@ -1,0 +1,77 @@
+[package]
+name = "omnyssh"
+version = "1.0.0"
+edition = "2021"
+description = "TUI SSH dashboard & server manager"
+license = "Apache-2.0"
+repository = "https://github.com/timhartmann7/omnyssh"
+keywords = ["ssh", "tui", "terminal", "devops"]
+categories = ["command-line-utilities"]
+
+[lib]
+name = "omnyssh"
+path = "src/lib.rs"
+
+[[bin]]
+name = "omny"
+path = "src/main.rs"
+
+[dependencies]
+# TUI
+ratatui = "0.29"
+crossterm = "0.28"
+
+# Async runtime — explicit features only; avoids pulling in unused tokio subsystems.
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time", "sync", "process", "fs", "io-util"] }
+
+# SSH
+russh = "0.46"
+russh-sftp = "2.0"
+russh-keys = "0.46"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+
+# Fuzzy search
+nucleo = "0.5"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# CLI
+clap = { version = "4", features = ["derive"] }
+
+# Error handling
+anyhow = "1"
+thiserror = "2"
+
+# Required for implementing russh::client::Handler (uses #[async_trait])
+async-trait = "0.1"
+
+# Cross-platform paths (P-CROSS-01)
+dirs = "5"
+
+# Feature B: Auto SSH Key Setup — timestamp generation
+chrono = "0.4"
+
+# Stage 5 — PTY terminal emulator
+portable-pty = "0.9"
+vt100 = "0.15"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full", "test-util"] }
+
+[build-dependencies]
+clap = { version = "4", features = ["derive"] }
+clap_mangen = "0.2"
+
+[patch.crates-io]
+vt100 = { path = "vendor/vt100" }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true

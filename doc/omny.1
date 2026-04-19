@@ -1,0 +1,31 @@
+.ie \n(.g .ds Aq \(aq
+.el .ds Aq '
+.TH omny 1  "omny 1.0.0" 
+.SH NAME
+omny \- TUI SSH dashboard & server manager
+.SH SYNOPSIS
+\fBomny\fR [\fB\-c\fR|\fB\-\-config\fR] [\fB\-t\fR|\fB\-\-theme\fR] [\fB\-v\fR|\fB\-\-verbose\fR] [\fB\-h\fR|\fB\-\-help\fR] [\fB\-V\fR|\fB\-\-version\fR] 
+.SH DESCRIPTION
+TUI SSH dashboard & server manager
+.SH OPTIONS
+.TP
+\fB\-c\fR, \fB\-\-config\fR \fI<FILE>\fR
+Path to a custom config file.
+
+Defaults to ~/.config/omnyssh/config.toml (Linux/macOS) or %APPDATA%\\\\omnyssh\\\\config.toml (Windows).
+.TP
+\fB\-t\fR, \fB\-\-theme\fR \fI<THEME>\fR
+Override the color theme (default | dracula | nord | gruvbox).
+
+This overrides the theme setting from the config file.
+.TP
+\fB\-v\fR, \fB\-\-verbose\fR
+Enable verbose debug logging (written to stderr)
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Print help (see a summary with \*(Aq\-h\*(Aq)
+.TP
+\fB\-V\fR, \fB\-\-version\fR
+Print version
+.SH VERSION
+v1.0.0
