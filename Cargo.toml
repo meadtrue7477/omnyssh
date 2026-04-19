@@ -58,7 +58,7 @@ chrono = "0.4"
 
 # Stage 5 — PTY terminal emulator
 portable-pty = "0.9"
-vt100 = "0.15"
+vt100 = { package = "vt100-omnyssh", version = "0.15" }
 
 [dev-dependencies]
 tokio = { version = "1", features = ["full", "test-util"] }
@@ -66,9 +66,6 @@ tokio = { version = "1", features = ["full", "test-util"] }
 [build-dependencies]
 clap = { version = "4", features = ["derive"] }
 clap_mangen = "0.2"
-
-[patch.crates-io]
-vt100 = { path = "vendor/vt100" }
 
 [profile.release]
 opt-level = 3
